@@ -1,5 +1,6 @@
 # Toxic Comment Classification
 
+
 ### Problem Motivation
 - Social media usage is at an all time high, with the average US adult social networking user spending 7 more minutes per day on social networks than in 2019.
 - Enormous increase in User Generated Contents (UGC) on other online platforms such as newsgroups, blogs, and online forums.
