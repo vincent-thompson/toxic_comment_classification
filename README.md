@@ -37,9 +37,15 @@ Before creating a vectorized representation of each comment to feed to various c
 ### Feature extraction
 TFIDF (Term Frequency - Inverse Document Frequency) Vectorization is a simple yet effective method to transform a corpus of comments from a list of strings to a suitable input for classification algorithms.  
 
-<img src="https://render.githubusercontent.com/render/math?math=P(Identical \ Twin \ | \ Twin) = \frac{P(Twin \ | \ Identical \ Twin) \times P(Identical \ Twin)}{P(Twin)}">
+- The term frequency of a word in a comment is simply the raw count of times that word appears in the comment.  
+- The inverse document frequency for a word is calculated by taking the total number of comments in our corpus, dividing it by the number of comments that contain the word, and taking the log of the result.  If the word is very common across the corpus, the IDF approaches 0, and if it is very rare it will approach 1.
+
+The TF-IDF then, is the product of these two values, resulting in a metric that gives more weight to words that appear many times in a comment, but less weight to words that are more common across the corpus and not likely to be strong indicators of tone.
 
 <img src="https://render.githubusercontent.com/render/math?math=tfidf(t,d,D) = tf(t,d) \times idf(t,D)">
-tf idf (t, d, D) = tf(t, d) $\frac{d}{D}$ idf(t, D)
+Where:
+<img src="https://render.githubusercontent.com/render/math?math=tf(t, d) = log(1+freq(t,d))">
+<img src="https://render.githubusercontent.com/render/math?math=idf(t, D) = log(\frac{N}{count(d \in D : t \in d})">
+
 
 
