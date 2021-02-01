@@ -44,8 +44,25 @@ The TF-IDF then, is the product of these two values, resulting in a metric that 
 
 <img src="https://render.githubusercontent.com/render/math?math=tfidf(t,d,D) = tf(t,d) \times idf(t,D)">
 Where:
-<img src="https://render.githubusercontent.com/render/math?math=tf(t, d) = log(1+freq(t,d))">
+<img src="https://render.githubusercontent.com/render/math?math=tf(t, d) = log(1{+}freq(t,d))">
 <img src="https://render.githubusercontent.com/render/math?math=idf(t, D) = log(\frac{N}{count(d \in D : t \in d})">
+
+Using scikit-learn, we can generate a Document Term Matrix where the features for each comment are its TF-IDF values corresponding to each word in the corpus.  
+
+The TF-IDF technique has long been replaced by more sophisticated modeling techniques that capture the semantic relationships between words (Word2Vec/Glove, Transformer Models, ELMO/BERT, etc), but this project is restricted to the token representation.
+
+### Model Selection and Performance
+
+The metric chosen to evaluate the performance of the various classification models was the [ROC AUC](https://en.wikipedia.org/wiki/Receiver_operating_characteristic#Area_under_the_curve), which measures how well a model can detect true positives (recall) while avoiding false positives.  In other words, we want to catch as high a percentage of true toxic comments as possible without them falling through the cracks, but we don't want to have to flag a large portion of the dataset to do so (recall is important, but we could flag every comment as toxic and have a perfect recall, which would not be a useful model)
+
+The classification algorithms that were tested include:
+- Logistic Regression
+- Naive Bayes
+- Linear Support Vector Machine
+- Random Forest
+- Ensemble learning (Soft Voting Classifier)
+
+
 
 
 
